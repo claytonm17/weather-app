@@ -1,10 +1,95 @@
-$body-color: red;
+// Color pallette
+$dark-gray: #353535;
+$turquoise: #0096c7;
+$white: #ffffff;
+$light-gray: #8a817c;
+$blue: #48cae4;
 
 * {
     margin: 0px;
     padding: 0px;
 }
 
+:root {
+    font-size: 16px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
 body {
-  color: $body-color;
+    background-color: $turquoise;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0 1rem 0;
+    gap: 2rem;
+
+    h1 {
+        color: $white;
+        font-size: 2.5rem;
+    }
+
+    form {
+        display: flex;
+
+        .search-input, label {
+            padding: 0.25rem 0 0.25rem 1rem;
+            background-color: $dark-gray;
+            border: 1px solid $light-gray;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            color: $white;
+        }
+
+        .search-input {
+            border-radius: 1rem 0 0 1rem;
+            border-right: none;
+        }
+
+        label {
+            border-radius: 0 1rem 1rem 0;
+            border-left: none;
+            padding-right: 1rem;
+        }
+
+        img {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        .search-submit {
+            display: none;
+        }
+
+        .search-submit:hover {
+            cursor: pointer;
+        }
+    }
+
+    .unit-selection {
+        display: flex;
+    }
+
+    .unit-selection {
+        gap: 3rem;
+        
+        button {
+            padding: 0.5rem 1.5rem;
+            background-color: $dark-gray;
+            border: 1px solid $light-gray;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            color: white;
+            border-radius: 1.5rem;
+        }
+
+        .active, :hover {
+            border: solid 2px $white;
+            cursor: pointer;
+        }
+
+
+    }
 }

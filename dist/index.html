@@ -6,7 +6,20 @@
     <title>Weather App</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <nav class="navbar">
+        <h1 class="logo">Forecast Master</h1>
+        <form action="#" class="search" method="get">
+            <input type="search" class="search-input" placeholder="Enter city">
+            <label>
+                <input type="submit" class="search-submit">
+                <img src="../src/images/search.svg" alt="Search icon">
+            </label>
+        </form>
+        <div class="unit-selection">
+            <button class="celcius">°C</button>
+            <button class="fahrenheit active">°F</button>
+        </div>
+    </nav>
     <script defer src="./main.js"></script>
 </body>
 </html>
