@@ -1,7 +1,6 @@
 import "./style.scss"
 
-const apiKey = "ce6f2972b60d0187995517d95c413871";
-let city = "Columbus";
+const apiKey = "ce6f2972b60d0187995517d95c413871"; // dont steal pls
 
 async function callAPI(city) {
     // Returns api json
@@ -9,8 +8,6 @@ async function callAPI(city) {
     const call = await fetch(url);
     return call.json();
 };
-
-//console.log(callAPI(city));
 
 async function extractAPI(apiCall) {
     // extracting weather info used for app in an object
@@ -29,10 +26,12 @@ async function extractAPI(apiCall) {
     return weatherInformation
 };
 
-/* this logs the extracted api
-(async () => {
-    let json = await callAPI(city);
-    console.log(extractAPI(json));
-})();
-*/
-
+// Event listener for city input
+const form = document.querySelector('.search');
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    let city = form.elements['city'].value;
+    const apiResponse = await callAPI(city);
+    const weatherInfo = await extractAPI(apiResponse);
+    console.log(weatherInfo);
+});
