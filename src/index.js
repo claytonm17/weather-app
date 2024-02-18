@@ -20,8 +20,10 @@ async function extractAPI(apiCall) {
     weatherInformation.tempMax = apiCall.main.temp_max;
     weatherInformation.tempMin = apiCall.main.temp_min;
     weatherInformation.humidity = apiCall.main.humidity;
-    weatherInformation.visibility = apiCall.visibility;
     weatherInformation.windSpeed = apiCall.wind.speed;
+    weatherInformation.sunrise = apiCall.sys.sunrise;
+    weatherInformation.sunset = apiCall.sys.sunset;
+    weatherInformation.city = apiCall.name;
 
     return weatherInformation
 };
@@ -35,3 +37,46 @@ form.addEventListener('submit', async (event) => {
     const weatherInfo = await extractAPI(apiResponse);
     console.log(weatherInfo);
 });
+
+// Data cleanup functions
+function tempToF(temp) {
+    let tempF = Math.round((temp - 273.15) * 1.8 + 32);
+    return tempF;
+}
+
+function tempToC(temp) {
+    let tempC = Math.round(temp - 273.15);
+    return tempC
+}
+
+// DOM Functions
+function domInit() {
+    const body = document.querySelector("body");
+    const main = document.createElement("main");
+    body.appendChild(main);
+    console.log("main created");
+    return null
+}
+
+function nameDate(name, date) {
+    const main = document.querySelector("main");
+    const container = document.createElement("div");
+    container.className = "name-date";
+
+    const h2 = document.createElement("h2");
+    h2.className = "city-name";
+    h2.textContent = name;
+
+    const day = document.createElement("p");
+    day.className = "date";
+    day.textContent = date;
+
+    container.appendChild(h2);
+    container.appendChild(day);
+    main.appendChild(container);
+    console.log("name and date created");
+    return null
+}
+
+domInit();
+nameDate('Cleveland', 'date');
