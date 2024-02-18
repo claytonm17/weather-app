@@ -2,7 +2,7 @@
 $dark-gray: #353535;
 $turquoise: #0096c7;
 $white: #ffffff;
-$light-gray: #8a817c;
+$light-gray: #dee2e6;
 $blue: #48cae4;
 
 * {
@@ -12,11 +12,11 @@ $blue: #48cae4;
 
 :root {
     font-size: 16px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    font-family: "Rubik", serif;
 }
 
 body {
-    background-color: $turquoise;
+    background-image: linear-gradient(to right, $blue, $turquoise);
 }
 
 nav {
@@ -96,7 +96,87 @@ nav {
             border: solid 2px $white;
             cursor: pointer;
         }
+    }
+}
 
+main {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
 
+    .name-date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: bold;
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: $light-gray;
+            font-size: 1.5rem;
+        }
+    }
+
+    .main-weather {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        .logo-temp {
+            display: flex;
+            align-items: center;
+
+            p {
+                font-size: 3.5rem;
+                font-weight: 500;
+            }
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .main {
+                color: $white;
+            }
+
+            p {
+                color: $light-gray;
+            }
+        }
+    }
+
+    .weather-grid {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        display: grid;
+        grid-template-columns: repeat(3, 10rem);
+        grid-template-rows: repeat(2, 3rem);
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+        align-items: center;
+        justify-content: center;
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                font-size: 1rem;
+                color: $light-gray;
+            }
+
+            div {
+                font-size: 1.5rem;
+            }
+        }
     }
 }
