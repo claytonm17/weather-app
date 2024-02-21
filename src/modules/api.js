@@ -1,5 +1,7 @@
 const apiKey = "ce6f2972b60d0187995517d95c413871"; // dont steal pls
 
+const unit = 'F'
+
 async function callAPI(city) {
     // Returns api json
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
@@ -22,6 +24,7 @@ async function extractAPI(apiCall) {
     weatherInformation.sunrise = apiCall.sys.sunrise;
     weatherInformation.sunset = apiCall.sys.sunset;
     weatherInformation.city = apiCall.name;
+    weatherInformation.time = apiCall.dt;
 
     return weatherInformation
 };
