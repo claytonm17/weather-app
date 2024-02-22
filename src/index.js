@@ -9,6 +9,7 @@ const unit = 'F';
 const form = document.querySelector('.search');
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
+
     let city = form.elements['city'].value;
     const apiResponse = await callAPI(city);
     const weatherInfo = await extractAPI(apiResponse);
@@ -24,7 +25,6 @@ form.addEventListener('submit', async (event) => {
 
 /*
 BUGS TO FIX:
-- reset page after new city input
 - time display issue
 - add degree symbols to grid
 - add wind speed to grid

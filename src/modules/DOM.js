@@ -1,5 +1,13 @@
+const unit = 'F'
+
 function domInit() {
     const body = document.querySelector("body");
+    const existingMain = document.querySelector("main");
+
+    if (existingMain) {
+    body.removeChild(existingMain);
+    }
+
     const main = document.createElement("main");
     body.appendChild(main);
     console.log("main created");
@@ -43,7 +51,7 @@ function mainWeather(logo, temp, condition, feelsLike, description) {
 
     const temperature = document.createElement("p");
     temperature.className = "temp";
-    temperature.textContent = `${temp}`; //Clean up prior to inserting
+    temperature.textContent = `${temp}°${unit}`;
     logoTemp.appendChild(temperature);
 
     const details = document.createElement("div");
@@ -56,11 +64,11 @@ function mainWeather(logo, temp, condition, feelsLike, description) {
     details.appendChild(p1);
 
     const p2 = document.createElement("p");
-    p2.textContent = `Feels like ${feelsLike}`; // Again, clean up before insering
+    p2.textContent = `Feels like ${feelsLike}°${unit}`; 
     details.appendChild(p2);
 
     const p3 = document.createElement("p");
-    p3.textContent = description;
+    p3.textContent = description.charAt(0).toUpperCase() + description.slice(1);
     details.appendChild(p3);
 
     console.log('main weather created')
@@ -88,10 +96,10 @@ function weatherGrid(highTemp, lowTemp, humidity, wind, sunrise, sunset){
         return block;
     }
 
-    const hTemp = createBlock("High Temp", highTemp);
-    const lTemp = createBlock("Low Temp", lowTemp);
+    const hTemp = createBlock("High Temp", `${highTemp}°${unit}`);
+    const lTemp = createBlock("Low Temp", `${lowTemp}°${unit}`);
     const hum = createBlock("Humidity", humidity);
-    const win = createBlock("Wind Speed", wind);
+    const win = createBlock("Wind Speed", `${wind}mph`); // change with m/s
     const rise = createBlock("Sunrise", sunrise);
     const set = createBlock("Sunset", sunset);
 
