@@ -1,5 +1,3 @@
-const unit = 'F'
-
 function domInit() {
     const body = document.querySelector("body");
     const existingMain = document.querySelector("main");
@@ -34,7 +32,7 @@ function nameDate(name, date) {
     return null
 }
 
-function mainWeather(logo, temp, condition, feelsLike, description) {
+function mainWeather(logo, temp, condition, feelsLike, description, unit) {
     const main = document.querySelector("main");
     const container = document.createElement("div");
     container.className = "main-weather";
@@ -75,7 +73,7 @@ function mainWeather(logo, temp, condition, feelsLike, description) {
     return null
 }
 
-function weatherGrid(highTemp, lowTemp, humidity, wind, sunrise, sunset){
+function weatherGrid(highTemp, lowTemp, humidity, wind, sunrise, sunset, unit){
     // be sure to clean all of the input up before inserting it
     const main = document.querySelector("main");
     const container = document.createElement("div");
