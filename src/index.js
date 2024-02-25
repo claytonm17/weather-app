@@ -44,6 +44,7 @@ export { unit }
 /*
 BUGS TO FIX:
 - time display issue
-- make buttons functional for degree and speed
+- make buttons functional for speed
 - loading screen
+- button switch when already pulled up
 */

@@ -28,11 +28,14 @@ function cleanTime(unix) {
 
 function cleanWindSpeed(wind, unit) {
     // in m/s by default
+    let speed;
     if (unit === 'F') {
-        return wind * 2.23694
+        speed = wind * 2.23694
     } else {
-        return wind
+        speed = wind
     }
+    const rounded = Math.round(speed * 10) / 10
+    return rounded;
 }
 
 function cleanUp(info, unit) {
@@ -46,7 +49,7 @@ function cleanUp(info, unit) {
     cleanData.tempMax       = cleanTemperature(info.tempMax, unit)
     cleanData.tempMin       = cleanTemperature(info.tempMin, unit)
     cleanData.humidity      = info.humidity
-    cleanData.windSpeed     = cleanWindSpeed(info.windSpeed)
+    cleanData.windSpeed     = cleanWindSpeed(info.windSpeed, unit)
     cleanData.sunrise       = cleanTime(info.sunrise)
     cleanData.sunset        = cleanTime(info.sunset)
     cleanData.city          = info.city

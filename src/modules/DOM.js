@@ -94,10 +94,23 @@ function weatherGrid(highTemp, lowTemp, humidity, wind, sunrise, sunset, unit){
         return block;
     }
 
+    function conversion(unit) {
+        let speed
+        if (unit === 'F') {
+            speed = 'mph'
+        } else {
+            speed = 'm/s'
+        }
+        return speed
+    };
+
+    let windUnit = conversion(unit)
+    console.log(windUnit)
+
     const hTemp = createBlock("High Temp", `${highTemp}°${unit}`);
     const lTemp = createBlock("Low Temp", `${lowTemp}°${unit}`);
     const hum = createBlock("Humidity", humidity);
-    const win = createBlock("Wind Speed", `${wind}mph`); // change with m/s
+    const win = createBlock("Wind Speed", `${wind}${windUnit}`); // change with m/s
     const rise = createBlock("Sunrise", sunrise);
     const set = createBlock("Sunset", sunset);
 
