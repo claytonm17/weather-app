@@ -109,7 +109,7 @@ function weatherGrid(highTemp, lowTemp, humidity, wind, sunrise, sunset, unit){
 
     const hTemp = createBlock("High Temp", `${highTemp}°${unit}`);
     const lTemp = createBlock("Low Temp", `${lowTemp}°${unit}`);
-    const hum = createBlock("Humidity", humidity);
+    const hum = createBlock("Humidity", `${humidity}%`);
     const win = createBlock("Wind Speed", `${wind}${windUnit}`); // change with m/s
     const rise = createBlock("Sunrise", sunrise);
     const set = createBlock("Sunset", sunset);
